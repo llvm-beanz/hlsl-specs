@@ -12,6 +12,8 @@ if (NOT MAKEGLOSSARIES_COMPILER)
   message(FATAL_ERROR "Could not find makeglossaries")
 endif()
 
+find_program(PANDOC pandoc)
+
 set(intermediate_dir ${CMAKE_BINARY_DIR}/tmp/)
 
 message(STATUS "Generating targets for: ${PROJECT_NAME}")
@@ -42,4 +44,9 @@ add_custom_target(pdf
                   COMMENT "Assembling ${PROJECT_NAME}.pdf"
                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                   DEPENDS ${main_file} ${PROJECT_NAME}-prebuild ${PROJECT_NAME}-glossaries)
-
+if (PANDOC)
+add_custom_target(html
+                   COMMAND ${PANDOC} ${main_file} -f latex -t html -s -o ${CMAKE_BINARY_DIR}/hlsl.html
+                   COMMENT "Assembling ${PROJECT_NAME}.html"
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+endif()
