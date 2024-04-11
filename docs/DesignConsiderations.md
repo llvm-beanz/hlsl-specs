@@ -3,6 +3,70 @@
 When designing and proposing a feature for HLSL there are some design
 considerations that should be taken into account.
 
+## Design Philosophy
+
+There are a lot of examples of different approaches to programming language
+design. Taking inspiration, and some direct quotes, from [The Zen of
+Python](https://peps.python.org/pep-0020/),below is a list of guiding principles
+for HLSL's evolution:
+
+### Explicit is better than implicit.
+
+Our users are highly technical. They care deeply about both the performance and
+portability of the HLSL they write and maintain.
+
+### Prioritize simplicity.
+
+Correlations between code complexity and bugs are widely accepted. Complex code
+is also known to be more difficult to test, maintain, and extend. While a user
+may not care if the compiler code is simple, they do care if a compiler is
+buggy and slow to evolve.
+
+We should aim to solve problems with simple solutions, but some problems require
+a complex solution. In those cases we should strive to avoid complications in
+both design and implementation; keeping design as simple as possible.
+
+### Readability counts.
+
+Code is an evolving construct. As the technologies, people, and social
+structures around the code change code will need to evolve and change itself.
+The absence of readability becomes a barrier to evolution.
+
+### Special cases aren't special enough to break the rules.
+
+The rules of the programming language need to apply everywhere. The rules of our
+design process need to apply everywhere. The rules of our coding standards need
+to apply everywhere. Rules can change, but the can't be broken.
+
+### If you don't have time to do it right, you must have time to do it again.
+
+We should not rush design decisions for artificial reasons. When we ship a
+feature in HLSL our users will begin to depend on it which makes it hard for us
+to change it in the future without disrupting our users. For that reason we owe
+it to our users to be deliberate and thoughtful in our design so that we have
+the best chances of getting it right the first time.
+
+### We will make mistakes, we can't be afraid to fix them.
+
+Despite the point above, we are human. We will make mistakes. We can't be afraid
+to fix them even when it is scary or might cause unavoidable short term pain.
+
+### It is better to fail gracefully than succeed magically.
+
+There is nothing more frustrating than something not working as intended and
+providing bad feedback to the user. The Zen of Python says, "In the face of
+ambiguity, refuse the temptation to guess". We should prefer failing gracefully
+and giving actionable feedback to our users rather than trying to make our tools
+or language "guess" what the user intended because guessing wrong is worse.
+
+### Embrace idioms, standards, and common patterns.
+
+The default assumption should be to seek alignment. Whether that is aligning
+with the open source communities we work in, aligning with industry and
+international standards, or aligning with commonly acknowledged practices and
+patterns. We should not be different for the sake of being different, we should
+be different when there are compelling reasons to be different.
+
 ## Style Conventions
 
 HLSL's built-in types and methods should conform to a consistent coding style.
