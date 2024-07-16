@@ -84,7 +84,7 @@ DXC triage is focused on identifying critical issues that need to be resolved in
 
 The HLSL team has weekly design meetings to discuss designs. These meetings can be open to external contributors. The HLSL design meetings are regularly used at every step in the design process for a project.
 
-The indivudual bringing a topic to a design discussion will be the discussion leader for the meeting. The discussion leader should have a clear question they want to answer in the meeting. Near the conclusion of a design discussion the discussion leader should produce a list of action items they (or others) are going to pursue.
+The individual bringing a topic to a design discussion will be the discussion leader for the meeting. The discussion leader should have a clear question they want to answer in the meeting. Near the conclusion of a design discussion the discussion leader should produce a list of action items they (or others) are going to pursue.
 
 #### Discussion Preparation
 
