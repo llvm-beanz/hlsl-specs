@@ -56,11 +56,14 @@ Break --> |No| Issue[Is there an issue?]
 Issue --> |Yes|Fix{Fix it!}
 Issue --> |No| FileIssue{File an issue}
 FileIssue --> Fix
-Start --> |No| Understand[Is the solution to the problem well understood?]
+Start --> |No| Understand["`Is the solution to the
+                          problem well understood?`"]
 Understand --> |Yes| External[Does this have an external impact?]
 External --> |Yes| Proposal{Write a proposal}
-External --> |No| DetailedIssue{File a detailed issue and bring to refinement}
-Understand --> |No| Research{Do some research and bring it to a design discussion}
+External --> |No| DetailedIssue["`File a detailed issue
+                                and bring to refinement`"]
+Understand --> |No| Research["`Do some research and
+                             bring it to a design discussion`"]
 ```
 
 ### External Impacting Changes
