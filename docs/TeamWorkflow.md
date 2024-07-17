@@ -23,7 +23,7 @@ The HLSL team uses a proposal process for designing language and shader model fe
 
 ### Specification
 
-A full language specifiction for HLSL is being [drafted](https://github.com/microsoft/hlsl-specs/tree/main/specs/language). Each new language and shader model feature following the proposal process will develop a full **Detailed Design** which serves as a standalone feature specification until it can be integrated into the language or interchange format specification.
+A full language specifiction for HLSL is being [drafted](https://github.com/microsoft/hlsl-specs/tree/main/specs/language). Specifications for language extensions and interchange formats will be produced through the [proposal process](/docs/Process.md), and collected into the [specs directory](https://github.com/microsoft/hlsl-specs/tree/main/specs/).
 
 ### Issue
 
