@@ -1,10 +1,10 @@
-\documentclass[oneside]{book}
+\documentclass[a4paper,10pt,oneside,openany,final]{memoir}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{nameref}
 \usepackage[acronym,numberedsection=nameref,toc]{glossaries}
 \usepackage{multicol}
-\usepackage[marginparwidth=75pt, margin=2cm]{geometry}
+\usepackage[marginparwidth=75pt, margin=2cm, top=4cm, headsep=2cm]{geometry}
 \usepackage{listings}
 \usepackage{marginnote}
 \usepackage{parskip}
@@ -12,6 +12,7 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{tikz}
+\usepackage{svg}
 \usetikzlibrary{arrows,automata,positioning}
 
 \titleformat{\chapter}
@@ -27,7 +28,6 @@
 \newcommand{\SubSub}[2]{\subsubsection[#1]{#1\hfill[#2]}\label{#2}}
 
 \input{glossary}
-
 \title{High-Level Shader Language Specification\\
        \normalsize{Working Draft}}
 
@@ -43,12 +43,16 @@
     \end{center}
     }
 
-\usepackage{titleps}
-\newpagestyle{body}{
-  \sethead{}{}{\sectiontitle}
-  \setfoot{}{}{Working Draft}
-}
+\makepagestyle{body}
+ \makeevenhead{body}{}{\includesvg[width=\columnwidth]{assets/ecma-header.svg}}{}
+ \makeoddhead{body}{}{\includesvg[width=\columnwidth]{assets/ecma-header.svg}}{}
+ \makeevenfoot{body}{\thepage}{Working Draft}{\textsuperscript{\textcopyright} Ecma International \the\year}
+ \makeoddfoot{body}{\textsuperscript{\textcopyright} Ecma International \the\year}{Working Draft}{\thepage}
 \pagestyle{body}
+% This is needed to handle cases where a chapter fits entirely on one page,
+% which would otherwise cause the page style to revert to the default (plain)
+% for that page.
+\aliaspagestyle{chapter}{body}
 
 \setcounter{secnumdepth}{3}
 \newcommand{\parnum}{\textbf{\arabic{parcount}}}
@@ -78,8 +82,8 @@
 
 \begin{document}
 \input{macros}
-
 \maketitle
+\pagebreak
 
 \tableofcontents
 \input{introduction}

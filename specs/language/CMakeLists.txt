@@ -30,6 +30,7 @@ add_custom_target(${PROJECT_NAME}-prebuild
                   COMMAND ${PDFLATEX_COMPILER}
                             -output-directory ${CMAKE_BINARY_DIR}
                             -draftmode -interaction=nonstopmode
+                            --shell-escape
                             ${main_file}
                   COMMENT "Prebuilding ${PROJECT_NAME}"
                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -42,11 +43,13 @@ add_custom_target(${PROJECT_NAME}-glossaries
 add_custom_target(pdf
                   COMMAND ${PDFLATEX_COMPILER}
                           -output-directory ${CMAKE_BINARY_DIR}
+                          --shell-escape
                           ${main_file}
                   # It is not a mistake that this is repeated. TeX compilers are
                   # dumb. The first run generates the ToC and the second run is
                   # required to ensure the references are all correct.
                   COMMAND ${PDFLATEX_COMPILER}
+                          --shell-escape
                           -output-directory ${CMAKE_BINARY_DIR}
                           ${main_file}
                   COMMENT "Assembling ${PROJECT_NAME}.pdf"
