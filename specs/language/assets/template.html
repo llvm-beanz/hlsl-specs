@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-GB-oxendict"></html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:image" content="https://tc39.es/ecmarkup/ecma-logo.png">
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
+
+    <meta name="generator" content="pandoc" />
+
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+
+$for(css)$
+  <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+
+  $if(title)$
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <span class="doc-title">$title$</span>
+      </div>
+    </div>
+  </div>
+  $endif$
+  <div class="container">
+    <div class="row">
+
+      <div id="$idprefix$TOC" class="span3">
+        <div class="well toc">
+
+        $table-of-contents$
+
+        </div>
+      </div>
+
+      <div class="span9">
+
+      $for(include-before)$
+      $include-before$
+      $endfor$
+
+      <nav id="sitenav">
+      <div class="sitenav">
+      <span class="navlink">
+      $if(next.url)$
+      <span class="navlink-label">Next:</span> <a href="$next.url$" accesskey="n" rel="next">$next.title$</a>
+      $endif$
+      </span>
+      <span class="navlink">
+      $if(previous.url)$
+      <span class="navlink-label">Previous:</span> <a href="$previous.url$" accesskey="p" rel="previous">$previous.title$</a>
+      $endif$
+      </span>
+      </div>
+      </nav>
+
+      $body$
+
+      $for(include-after)$
+      $include-after$
+      $endfor$
+      </div>
+    </div>
+  </div>
+</body>
+</html>
