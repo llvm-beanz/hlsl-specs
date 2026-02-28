@@ -123,7 +123,20 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a { color: 
 #TOC, #toc { max-height: calc(100vh - 0px); overflow-y: auto; }
 
 /* Reduce overall container page padding to shrink left/right white gutter */
-.container { padding-left: 0; padding-right: 0; }
+.container {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Remove default negative row gutters so content reaches the left edge */
+.row { margin-left: 0; margin-right: 0; }
+
+/* Reduce column side-padding to shrink internal gutters further */
+.col-md-3, .col-md-9 { padding-left: 0.25rem; padding-right: 0.25rem; }
 
 /* Collapsible TOC rules */
 .toc ul ul { display: none; }
