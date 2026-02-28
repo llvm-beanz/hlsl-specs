@@ -74,7 +74,10 @@ jobs:
           cmake --build build --target pdf
           mkdir -p ${{github.workspace}}/website/public/specs/
           cp build/hlsl.pdf ${{github.workspace}}/website/public/specs/
-          unzip build/html/hlsl.zip -d ${{github.workspace}}/website/public/specs/
+          unzip build/html/hlsl.zip -d
+          ${{github.workspace}}/website/public/specs/
+          mkdir -p ${{github.workspace}}/website/public/specs/assets/
+          cp ${{github.workspace}}/specs/language/assets/* ${{github.workspace}}/website/public/specs/assets/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

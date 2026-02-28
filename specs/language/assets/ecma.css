@@ -1,34 +1,41 @@
+/* ecma.css - cleaned and modernized
+   - Sidebar uses position: sticky so it reaches the top when scrolling
+   - Layout works with Bootstrap grid (col-*) from template
+*/
+
+/* Sidebar */
 #toc {
-  width: 20em;
-  float: left;
+  width: 20rem;
   background: #d9d9d9;
-  height: 100vh;
-  position: fixed;
-  padding: 0 1em 0 1em;
-  overflow: scroll;
+  padding: 0; /* reduced left/right gutter */
+  position: sticky;
+  top: 0; /* sticks to the top of the viewport as you scroll */
+  height: calc(100vh - 0px);
+  overflow: auto;
 }
 
 div#toc ul {
   list-style-type: none;
-  padding: 0 0 0 0;
+  padding: 0;
+  margin: 0;
 }
 
 div#toc li {
-  list-style-type: none;
-  padding: 0 0 0 1em;
+  padding: 0 0 0 1rem;
 }
 
+/* Main content wrapper */
 #content {
-  position: absolute;
-  overflow: hidden;
-  margin-left:22em;
-  width: calc(100vw - 24em);
-  float:right;
-  padding: 0 1em 0 1em;
+  position: static;
+  overflow: visible;
+  margin-left: 0;
+  width: auto;
+  padding: 0 1rem;
 }
 
+/* Headings and titles */
 #title {
-  margin: 0 0 0 0;
+  margin: 0;
   font-size: 2.67em;
   color: #f60;
   font-weight: bold;
@@ -36,120 +43,90 @@ div#toc li {
 }
 
 #subtitle {
-  margin: 0 0 0 0;
+  margin: 0;
   font-size: 1.5em;
   color: #f60;
   font-weight: bold;
   line-height: 1;
 }
 
-img,
-canvas,
-iframe,
-video,
-svg,
-select,
-textarea {
+img, canvas, iframe, video, svg, select, textarea {
   max-width: 100%;
 }
 
-img {
-  margin: 0 0 0 0;
-}
+img { margin: 0; }
 
-h2 {
-  margin: 0 0 0 0;
-  font-size: 2em;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-h3 {
-  font-size: 1.56em;
-}
-
-h4 {
-  font-size: 1.25em;
-}
-
-h5 {
-  font-size: 1.11em;
-  margin-bottom: -1em;
-}
-
-h6 {
-  font-size: 1em;
-}
+h2 { margin: 0; font-size: 2em; font-weight: bold; text-decoration: none; }
+h3 { font-size: 1.56em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1.11em; margin-bottom: -1em; }
+h6 { font-size: 1em; }
 
 body {
   font-size: 18px;
   line-height: 1.5;
-  font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
   color: #111;
 }
 
 code {
-    font-weight: bold;
-    font-family: Consolas, Monaco, monospace;
-    white-space: pre;
+  font-weight: bold;
+  font-family: Consolas, Monaco, monospace;
+  white-space: pre;
 }
 
-pre code {
-  font-weight: inherit;
-  margin: 0;
-  padding: 0;
-}
-
-pre {
-  background-color: #fafafa;
-  padding: 1rem;
-  text-align: left;
-}
+pre code { font-weight: inherit; margin: 0; padding: 0; }
+pre { background-color: #fafafa; padding: 1rem; text-align: left; }
 
 blockquote {
   margin: 0;
   border-left: 5px solid #83D652;
-  padding: 0.1em 1.33em 0.1em 1.33em;
+  padding: 0.1em 1.33em;
   text-align: left;
   background-color: #EDF9E9;
 }
 
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-  margin: 0 1.5em 0 1.5em;
-}
+table { margin: 0 1.5em; border-collapse: collapse; }
+thead { background-color: #eeeeee; }
+td, th { border: 1px solid black; padding: 0.4em; vertical-align: baseline; }
 
-td, th {
-    border: 1px solid black;
-    padding: 0.4em;
-    vertical-align: baseline;
-}
-thead {
-    background-color: #eeeeee;
-}
-
-a, a:visited {
-  color: #2A6AA0;
-  text-decoration: none;
-}
-
-a:hover, a:focus, a:active {
-  color: #2A6AA0;
-  text-decoration: underline;
-}
+a, a:visited { color: #2A6AA0; text-decoration: none; }
+a:hover, a:focus, a:active { color: #2A6AA0; text-decoration: underline; }
 
 @media print {
-  #toc {
-    display:none;
-    width: 0;
-  }
-
-  #content {
-    width: 100%;
-    margin: 0 0 0 0;
-    padding: 0 1em 0 1em;
-  }
+  #toc { display: none; width: 0; }
+  #content { width: 100%; margin: 0; padding: 0 1em; }
 }
+
+/* Customizations */
+.doc-title {
+  float: left;
+  display: block;
+  padding: 8px 12px 8px;
+  margin-left: -8px; /* smaller offset to reduce left white space */
+  font-size: 20px;
+  font-weight: 200;
+  color: #777777;
+  text-shadow: 0 1px 0 #ffffff;
+}
+.doc-info .navbar-text { padding: 0 15px; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: #333; }
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a { color: #333; }
+.toc, .toc ul { padding: 0; }
+.toc ul { margin-left: 0; margin-bottom: 20px; list-style: none; }
+.toc li > a { display: inline-block; padding: 6px 8px; vertical-align: middle; }
+.toc li > a:hover, .toc li > a:focus { text-decoration: none; background-color: #eeeeee; }
+
+/* Ensure TOC container scrolls internally when long */
+#TOC, #toc { max-height: calc(100vh - 0px); overflow-y: auto; }
+
+/* Reduce overall container page padding to shrink left/right white gutter */
+.container { padding-left: 0; padding-right: 0; }
+
+/* Collapsible TOC rules */
+.toc ul ul { display: none; }
+.toc li.expanded > ul { display: block; }
+.toc-toggle { cursor: pointer; margin-right: 6px; padding: 0; border: 0; background: transparent; font-size: 0.9em; line-height: 1; display: inline-flex; align-items: center; vertical-align: middle; transition: transform .12s ease; }
+.toc-toggle[aria-expanded="true"] { transform: rotate(90deg); }

@@ -59,7 +59,7 @@ add_custom_target(pdf
                   DEPENDS ${main_file} ${PROJECT_NAME}-prebuild ${PROJECT_NAME}-glossaries)
 
 
-set(html_format_options --table-of-contents=true --template=${assets_dir}/template.html --css=${css_file})
+set(html_format_options --table-of-contents=true --template=${CMAKE_CURRENT_SOURCE_DIR}/template.html --css=${css_file})
 
 add_custom_target(html
                   COMMAND ${PANDOC_COMPILER} ${main_file} -f latex -t html ${html_format_options} -s -o ${CMAKE_BINARY_DIR}/html/hlsl.html
