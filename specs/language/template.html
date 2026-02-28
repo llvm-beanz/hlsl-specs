@@ -21,11 +21,13 @@ $if(math)$
   $math$
 $endif$
 
+<a href="$top.url$" accesskey="t" rel="top">
 <img
   src="assets/ecma-header.svg"
   alt="Ecma International"
   class="logo"
 />
+</a>
 $for(header-includes)$
   $header-includes$
 $endfor$
@@ -97,8 +99,27 @@ $endfor$
       </div>
       </nav>
 
+      $if(body)$
       $body$
+      $else$
+      <!--- The text below shows on the main index page, but not any of the
+        chapters. -->
+      <h1>$title$</h2>
+      <h2>Produced by Ecma International TC57</h2>
+      $if(date)$
+      Generated on $date$.
+      $endif$
 
+      <div id="metadata-block">
+  <h3>About this Specification</h3>
+  <p>This site contains the current working draft of the specification for the
+  High Level Shading Language (HLSL). This site is built from the development
+  sources in the <a href="https://github.com/hlsl-tc57/tc57">TC57 GitHub
+  repository</a>, which includes all specification text proposed for the next
+  edition of the specification.</p>
+  </div>
+
+      $endif$
       $for(include-after)$
       $include-after$
       $endfor$
