@@ -1,8 +1,3 @@
-/* ecma.css - cleaned and modernized
-   - Sidebar uses position: sticky so it reaches the top when scrolling
-   - Layout works with Bootstrap grid (col-*) from template
-*/
-
 /* Sidebar */
 #toc {
   width: 20rem;
@@ -31,23 +26,6 @@ div#toc li {
   margin-left: 0;
   width: auto;
   padding: 0 1rem;
-}
-
-/* Headings and titles */
-#title {
-  margin: 0;
-  font-size: 2.67em;
-  color: #f60;
-  font-weight: bold;
-  line-height: 1;
-}
-
-#subtitle {
-  margin: 0;
-  font-size: 1.5em;
-  color: #f60;
-  font-weight: bold;
-  line-height: 1;
 }
 
 img, canvas, iframe, video, svg, select, textarea {
@@ -119,8 +97,19 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a { color: 
 .toc li > a { display: inline-block; padding: 6px 8px; vertical-align: middle; }
 .toc li > a:hover, .toc li > a:focus { text-decoration: none; background-color: #eeeeee; }
 
-/* Ensure TOC container scrolls internally when long */
-#TOC, #toc { max-height: calc(100vh - 0px); overflow-y: auto; }
+/* Ensure TOC container scrolls internally when long; allow horizontal scrolling for long links */
+#TOC, #toc {
+  max-height: calc(100vh - 0px);
+  overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent TOC link text from wrapping; enable horizontal scroll instead */
+.toc li, .toc li > a {
+  white-space: nowrap;
+}
+.toc ul ul { white-space: nowrap; }
 
 /* Reduce overall container page padding to shrink left/right white gutter */
 .container {
@@ -143,3 +132,21 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a { color: 
 .toc li.expanded > ul { display: block; }
 .toc-toggle { cursor: pointer; margin-right: 6px; padding: 0; border: 0; background: transparent; font-size: 0.9em; line-height: 1; display: inline-flex; align-items: center; vertical-align: middle; transition: transform .12s ease; }
 .toc-toggle[aria-expanded="true"] { transform: rotate(90deg); }
+
+/* Grammar style */
+.grammarlist {
+  border: 1px solid #000;
+  background: #ffffff;
+	font-family: 'Noto Sans';
+	font-size: 10pt;
+	font-style: italic;
+	margin-left: 25pt;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	text-indent: -2em;
+	padding-left: 3em;
+	line-height: 1.5;
+  list-style-type: none;
+}
+
+div.grammarlist span.texttt { font-family: 'Noto Sans Mono'; font-style: normal; }
