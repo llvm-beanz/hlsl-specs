@@ -213,7 +213,7 @@ components of either the \textit{swizzle-component-rgba} or
 \textit{swizzle-component-xyzw} forms; the two forms may not be mixed in the
 same \textit{vector-swizzle-component-sequence}. The type of a swizzle expression is a
 vector of the same element type as the postfix expression before the dot, with a
-number of elements equal to the number of components in the \textit{vector-swizzle-component-sequence}. 
+number of elements equal to the number of components in the \textit{vector-swizzle-component-sequence}.
 
 \p Vector swizzle components map to elements of the vector in the following way:
 
@@ -228,6 +228,7 @@ number of elements equal to the number of components in the \textit{vector-swizz
     3 & a & w \\
     \hline
   \end{tabular}
+  \captionof{table}{Vector swizzle component mapping}
 \end{center}
 
 \p A program is ill-formed if any component in the \textit{swizzle-component-sequence}
@@ -270,7 +271,7 @@ postfix expression before the dot.
 \p A \textit{matrix-swizzle-component-sequence} is a sequence of one but less
 than or equal to four swizzle components of either the
 \textit{matrix-zero-indexed-swizzle} or \textit{matrix-one-indexed-swizzle}
-forms; the two forms may not be mixed in the same 
+forms; the two forms may not be mixed in the same
 \textit{matrix-swizzle-component-sequence}. The type of a swizzle expression is
 a vector of the same element type as the postfix expression before the dot,
 with a number of elements equal to the number of components in the
@@ -301,6 +302,7 @@ with a number of elements equal to the number of components in the
     3,3 & \_m33 & \_44 \\
     \hline
   \end{tabular}
+  \captionof{table}{Matrix swizzle component mapping}
 \end{center}
 
 \Sec{Function Calls}{Expr.Post.Call}
