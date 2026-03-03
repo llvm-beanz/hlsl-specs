@@ -228,6 +228,8 @@ are temporarily not executing.
 
 \p The diagram blow illustrates the state transitions between \gls{lane} states:
 
+\begin{figure}
+\centering
 \begin{tikzpicture}[shorten >=1pt,node distance=3cm,auto, squarednode/.style={rectangle,minimum size=7mm}]
   \node[squarednode,state,initial above] (active) {$active$};
   \node[squarednode,state,initial above] (inactive)[right of=active] {$inactive$};
@@ -244,6 +246,8 @@ are temporarily not executing.
   \path[->] (helper) edge node {branch} (off2);
   \path[->] (off2) edge node {} (helper);
 \end{tikzpicture}
+\caption{State transitions for \gls{lane} states}
+\end{figure}
 
 \Sub{\acrshort{spmd} Execution Model}{Intro.Model.Exec}
 
