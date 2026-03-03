@@ -90,3 +90,18 @@
 {\lstset{language=C++,
 basicstyle=\small,
 xleftmargin=1em}}{}
+
+%%------------------------------------------------------------------------------
+%% Note formatting
+%%------------------------------------------------------------------------------
+
+\newenvironment{note}
+    {\begin{center}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    {
+    \\\\\hline
+    \end{tabular}
+    \end{center}
+    }

@@ -228,26 +228,28 @@ are temporarily not executing.
 
 \p The diagram blow illustrates the state transitions between \gls{lane} states:
 
+\begin{center}
 \begin{figure}
-\centering
-\begin{tikzpicture}[shorten >=1pt,node distance=3cm,auto, squarednode/.style={rectangle,minimum size=7mm}]
-  \node[squarednode,state,initial above] (active) {$active$};
-  \node[squarednode,state,initial above] (inactive)[right of=active] {$inactive$};
-  \node[squarednode,state] (helper)[below of=active] {$helper$};
-  \node[squarednode,state] (off1)[below left of=active] {off};
-  \node[squarednode,state] (off2)[right of=helper] {off};
+  \centering
+  \caption{State transitions for \gls{lane} states}
+  \begin{tikzpicture}[shorten >=1pt,node distance=3cm,auto, squarednode/.style={rectangle,minimum size=7mm}]
+    \node[squarednode,state,initial above] (active) {$active$};
+    \node[squarednode,state,initial above] (inactive)[right of=active] {$inactive$};
+    \node[squarednode,state] (helper)[below of=active] {$helper$};
+    \node[squarednode,state] (off1)[below left of=active] {off};
+    \node[squarednode,state] (off2)[right of=helper] {off};
 
 
-  \path[->] (active) edge node {discard} (inactive);
-  \path[->] (active) edge node {discard} (helper);
-  \path[->] (active) edge node {branch} (off1);
-  \path[->] (off1) edge node {} (active);
+    \path[->] (active) edge node {discard} (inactive);
+    \path[->] (active) edge node {discard} (helper);
+    \path[->] (active) edge node {branch} (off1);
+    \path[->] (off1) edge node {} (active);
 
-  \path[->] (helper) edge node {branch} (off2);
-  \path[->] (off2) edge node {} (helper);
-\end{tikzpicture}
-\caption{State transitions for \gls{lane} states}
+    \path[->] (helper) edge node {branch} (off2);
+    \path[->] (off2) edge node {} (helper);
+  \end{tikzpicture}
 \end{figure}
+\end{center}
 
 \Sub{\acrshort{spmd} Execution Model}{Intro.Model.Exec}
 
