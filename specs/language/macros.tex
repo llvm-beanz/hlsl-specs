@@ -12,11 +12,16 @@
 }
 
 \setcounter{secnumdepth}{3} % number subsections
-\newcommand{\Ch}[2]{\chapter[#1]{#1\hfill[#2]}\label{#2}}
+\newcommand{\Ch}[2]{\vspace{1em}\chapter[#1]{#1\hfill[#2]}\label{#2}}
 \newcommand{\Sec}[2]{\section[#1]{#1\hfill[#2]}\label{#2}}
 \newcommand{\Sub}[2]{\subsection[#1]{#1\hfill[#2]}\label{#2}}
 \newcommand{\SubSub}[2]{\subsubsection[#1]{#1\hfill[#2]}\label{#2}}
 \newcommand{\parnum}{\numberinmargin{parcount}}
+
+% Don't start a new page for each chapter, and don't reset page numbers at the
+% start of each chapter. Ths conforms to the Ecma house style (see: TOOLS-011,
+% 6.2.1).
+\titleclass{\chapter}{straight}
 
 \newcommand{\newparcounter}[1]{
 \newcounter{#1}
