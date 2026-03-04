@@ -21,15 +21,18 @@
 \makeatother
 
 % Make spacing between paragraphs and titles consistent
-\titleformat{\chapter}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\chapter}{\large\bfseries}{\thechapter.}{0em}{}
 \titlespacing{\chapter}{0pt}{0.5\baselineskip}{0pt}
 
 
-\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\section}{\bfseries}{\thesection.}{0em}{}
 \titlespacing{\section}{0pt}{0.5\baselineskip}{0pt}
 
-\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection.}{0em}{}
 \titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
+
+\titleformat{\subsubsection}{\bfseries}{\thesubsection.}{0em}{}
+\titlespacing{\subsubsection}{0pt}{0.5\baselineskip}{0pt}
 
 \newcommand{\nocontentsline}[3]{}
 \let\origcontentsline\addcontentsline
