@@ -44,12 +44,21 @@
 \begin{document}
 \input{macros}
 \maketitle
-\pagebreak
+% Hide page number on the title page and do not count it in frontmatter
+\thispagestyle{empty}
+\clearpage
 
+% Use roman numerals for front matter (TOC, lists, etc.)
+\pagenumbering{roman}
+
+% don't include the toc in the toc.
 \stoptoc
 \tableofcontents
 \resumetoc
-\pagebreak
+\clearpage
+
+% Switch to arabic numbering starting at 1 for main content
+\pagenumbering{arabic}
 \input{introduction}
 \input{lex}
 
