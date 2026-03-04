@@ -95,13 +95,20 @@ xleftmargin=1em}}{}
 %% Note formatting
 %%------------------------------------------------------------------------------
 
+% Ecma style requires notes be numbered if more than one occurs in the same
+% section. This doesn't currently happen in our spec, but we may need to define
+% a note counter if it does in the future.
 \newenvironment{note}
-    {\begin{center}
-    \begin{tabular}{|p{0.9\textwidth}|}
-    \hline\\
-    }
-    {
-    \\\\\hline
-    \end{tabular}
-    \end{center}
-    }
+  {
+   \vspace{0.5\baselineskip}
+   \begin{tabular}{|p{3.0em} p{0.84\textwidth}|}
+   \hline
+   \begin{minipage}[t]{3.0em}\centering\textnormal{NOTE}
+   \end{minipage} &
+   \begin{minipage}[t]{0.84\textwidth}\raggedright
+  }
+  {
+   \end{minipage} \\\hline
+   \end{tabular}
+   \vspace{0.5\baselineskip}
+  }
