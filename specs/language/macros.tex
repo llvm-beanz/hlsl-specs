@@ -20,6 +20,17 @@
 \renewcommand{\l@section}[2]{\@dottedtocline{1}{0pt}{2.6em}{\textbf{#1}}{#2}}
 \makeatother
 
+% Make spacing between paragraphs and titles consistent
+\titleformat{\chapter}{\large\bfseries}{\thesection}{1em}{}
+\titlespacing{\chapter}{0pt}{0.5\baselineskip}{0pt}
+
+
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0pt}
+
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{0.5\baselineskip}{0pt}
+
 \newcommand{\nocontentsline}[3]{}
 \let\origcontentsline\addcontentsline
 \newcommand\stoptoc{\let\addcontentsline\nocontentsline}
@@ -46,14 +57,10 @@
 
 \newparcounter{parcount}
 \newcommand\p{%
+    \vspace{0.5\baselineskip}
     \stepcounter{parcount}%
-    \parnum \hspace{1em}%
+    \parnum%
 }
-
-\newenvironment{parnumbers}{%
-   \par%
-   \everypar{\noindent \stepcounter{parcount}\parnum \hspace{1em}}%
-}{}
 
 \newcommand{\Par}[2]{\paragraph[#1]{#1\hfill[#2]\\}\label{#2}\p}
 
